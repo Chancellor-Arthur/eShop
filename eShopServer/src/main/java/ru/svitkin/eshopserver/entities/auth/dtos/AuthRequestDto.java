@@ -1,9 +1,11 @@
 package ru.svitkin.eshopserver.entities.auth.dtos;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-public class AuthRequest {
+@AllArgsConstructor
+public class AuthRequestDto {
     private String username;
     private String password;
 }

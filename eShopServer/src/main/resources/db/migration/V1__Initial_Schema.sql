@@ -1,7 +1,9 @@
 create table roles
 (
     id   serial primary key,
-    name varchar not null
+    name varchar not null,
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now()
 );
 
 create table users
@@ -9,7 +11,9 @@ create table users
     id       serial primary key,
     username varchar not null unique,
     password varchar not null,
-    email    varchar not null unique
+    email    varchar not null unique,
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now()
 );
 
 create table users_roles
@@ -18,7 +22,9 @@ create table users_roles
     role_id integer not null,
     primary key (user_id, role_id),
     foreign key (user_id) references users (id),
-    foreign key (role_id) references roles (id)
+    foreign key (role_id) references roles (id),
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now()
 );
 
 insert into roles (name)

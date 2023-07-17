@@ -9,4 +9,6 @@ spring.jpa.properties.hibernate.show_sql=true
 jwt.secret=secret
 jwt.lifetime=30m
 
+server.error.include-message=always
+
 logging.level.web=DEBUG
