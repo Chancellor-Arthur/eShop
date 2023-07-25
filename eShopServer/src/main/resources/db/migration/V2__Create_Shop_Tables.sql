@@ -36,7 +36,6 @@ create table devices
     id         serial primary key,
     name       varchar not null unique,
     price      integer not null,
-    rating     integer                  default 0,
     image      varchar,
     type_id    integer references types (id),
     brand_id   integer references brands (id),

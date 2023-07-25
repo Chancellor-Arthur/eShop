@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.svitkin.eshopserver.config.BaseEntity;
 import ru.svitkin.eshopserver.entities.type.Type;
 
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,20 +14,9 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Brand {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
+public class Brand extends BaseEntity {
     @Column(name = "name")
     private String name;
-
-    @Column(name = "created_at")
-    private Date createdAt;
-
-    @Column(name = "updated_at")
-    private Date updatedAt;
 
     @ManyToMany
     @JoinTable

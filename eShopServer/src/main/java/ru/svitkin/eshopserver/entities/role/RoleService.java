@@ -9,6 +9,6 @@ public class RoleService {
     private final RoleRepository roleRepository;
 
     public Role getUserRole() {
-        return roleRepository.findByName(Roles.USER.getRole()).get();
+        return roleRepository.findByName(RoleEnum.Code.ADMIN).get();
     }
 }

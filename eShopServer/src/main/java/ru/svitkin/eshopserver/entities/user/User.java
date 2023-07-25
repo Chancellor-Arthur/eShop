@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.svitkin.eshopserver.config.BaseEntity;
+import ru.svitkin.eshopserver.entities.basket.Basket;
 import ru.svitkin.eshopserver.entities.role.Role;
 
 import java.util.List;
@@ -13,12 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
+public class User extends BaseEntity {
     @Column(name = "username")
     private String username;
 
@@ -28,6 +25,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(mappedBy = "user")
+    private Basket basket;
+
     @ManyToMany
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
@@ -36,6 +36,6 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
-        roles.add(role);
+        roles = List.of(role);
     }
 }

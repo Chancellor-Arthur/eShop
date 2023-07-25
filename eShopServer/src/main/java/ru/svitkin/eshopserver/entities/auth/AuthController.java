@@ -1,14 +1,15 @@
 package ru.svitkin.eshopserver.entities.auth;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.svitkin.eshopserver.entities.auth.dtos.AuthRequestDto;
-import ru.svitkin.eshopserver.entities.auth.dtos.AuthResponseDto;
-import ru.svitkin.eshopserver.entities.auth.dtos.RegistrationInfoDto;
-import ru.svitkin.eshopserver.entities.user.dtos.UserDto;
+import ru.svitkin.eshopserver.entities.auth.dtos.AuthInputDto;
+import ru.svitkin.eshopserver.entities.auth.dtos.AuthOutputDto;
+import ru.svitkin.eshopserver.entities.auth.dtos.UserInputDto;
+import ru.svitkin.eshopserver.entities.user.dtos.UserOutputDto;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,12 +18,12 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public AuthResponseDto createAuthToken(@RequestBody AuthRequestDto authRequestDto) {
-        return authService.signIn(authRequestDto);
+    public AuthOutputDto createAuthToken(@Valid @RequestBody AuthInputDto authInputDto) {
+        return authService.signIn(authInputDto);
     }
 
     @PostMapping("/registration")
-    public UserDto createNewUser(@RequestBody RegistrationInfoDto registrationInfoDto) {
-        return authService.signUp(registrationInfoDto);
+    public UserOutputDto createNewUser(@Valid @RequestBody UserInputDto userInputDto) {
+        return authService.signUp(userInputDto);
     }
 }
