@@ -13,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DeviceOutputDto {
+    private int id;
+
     private String name;
 
     private int price;

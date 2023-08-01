@@ -21,6 +21,12 @@ public class DeviceController {
                 .map(device -> new ModelMapper().map(device, DeviceOutputDto.class)).toList();
     }
 
+    @GetMapping
+    public DeviceOutputDto getOne(@RequestParam int id) {
+        Device device = deviceService.getById(id);
+        return new ModelMapper().map(device, DeviceOutputDto.class);
+    }
+
     @PostMapping
     public DeviceOutputDto create(@Valid @RequestBody DeviceInputDto deviceInputDto) {
         Device device = deviceService.create(deviceInputDto);

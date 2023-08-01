@@ -2,6 +2,7 @@ package ru.svitkin.eshopserver.entities.role;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.svitkin.eshopserver.exceptions.NotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -9,6 +10,7 @@ public class RoleService {
     private final RoleRepository roleRepository;
 
     public Role getUserRole() {
-        return roleRepository.findByName(RoleEnum.Code.ADMIN).get();
+        return roleRepository.findByName(Roles.ADMIN)
+                .orElseThrow(() -> new NotFoundException(String.format("Роль '%s' не найдена", Roles.ADMIN)));
     }
 }

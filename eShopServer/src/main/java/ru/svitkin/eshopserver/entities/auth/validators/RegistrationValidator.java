@@ -1,4 +1,4 @@
-package ru.svitkin.eshopserver.entities.auth;
+package ru.svitkin.eshopserver.entities.auth.validators;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
@@ -12,7 +12,7 @@ import ru.svitkin.eshopserver.exceptions.UnauthorizedException;
 
 @Component
 @RequiredArgsConstructor
-public class AuthValidator implements Validator {
+public class RegistrationValidator implements Validator {
     private final UserService userService;
 
     @Override
