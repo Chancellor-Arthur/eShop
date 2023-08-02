@@ -45,21 +45,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests((requests) ->
-                        requests.requestMatchers("/auth/**").permitAll()
-                                .requestMatchers("/swagger/**").permitAll()
-                                .requestMatchers("/error").permitAll()
-                                .requestMatchers("/admin/**").hasRole("ADMIN")
-                                .requestMatchers("/users/**").hasRole("ADMIN")
+                .authorizeHttpRequests(
+                        requests -> requests
+                                .requestMatchers("/auth/**", "/swagger/**", "/error").permitAll()
+                                .requestMatchers("/admin/**", "/users/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(
-                        managementConfigurer -> managementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                        managementConfigurer -> managementConfigurer
+                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
                 .exceptionHandling(
-                        httpSecurityExceptionHandlingConfigurer -> httpSecurityExceptionHandlingConfigurer.authenticationEntryPoint(
-                                        authenticationEntryPoint)
-                                .accessDeniedHandler(
-                                        accessDeniedHandler))
+                        httpSecurityExceptionHandlingConfigurer -> httpSecurityExceptionHandlingConfigurer
+                                .authenticationEntryPoint(authenticationEntryPoint)
+                                .accessDeniedHandler(accessDeniedHandler)
+                )
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
                 .logout(LogoutConfigurer::permitAll);
 
