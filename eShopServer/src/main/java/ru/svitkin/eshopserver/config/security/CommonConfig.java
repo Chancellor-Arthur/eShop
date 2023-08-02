@@ -9,8 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableJpaAuditing
 public class CommonConfig {
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

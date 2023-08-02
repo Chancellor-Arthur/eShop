@@ -10,13 +10,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DefaultExceptionPayload {
-    private String timestamp;
+	private String timestamp;
 
-    private int status;
+	private int status;
 
-    private String error;
+	private String error;
 
-    private String message;
+	private String message;
 
-    private String path;
+	private String path;
 }

@@ -14,10 +14,10 @@ import ru.svitkin.eshopserver.config.db.BaseEntity;
 @Setter
 @NoArgsConstructor
 public class Role extends BaseEntity {
-    @Column(name = "name")
-    private String name;
+	@Column(name = "name")
+	private String name;
 
-    public Role(String name) {
-        this.name = name;
-    }
+	public Role(String name) {
+		this.name = name;
+	}
 }

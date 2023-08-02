@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TypeInputDto {
-    @NotEmpty(message = "Название не может быть пустым")
-    @Size(min = 2, max = 100, message = "Название должно быть от 2 до 100 символов длиной")
-    private String name;
+	@NotEmpty(message = "Название не может быть пустым")
+	@Size(min = 2, max = 100, message = "Название должно быть от 2 до 100 символов длиной")
+	private String name;
 }

@@ -13,27 +13,27 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BadRequestExceptionPayload extends DefaultExceptionPayload {
-    private List<Error> errors;
+	private List<Error> errors;
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class Error {
-        private List<String> codes;
+	@Getter
+	@Setter
+	@AllArgsConstructor
+	@NoArgsConstructor
+	public static class Error {
+		private List<String> codes;
 
-        private ArrayList<Object> arguments;
+		private ArrayList<Object> arguments;
 
-        private String defaultMessage;
+		private String defaultMessage;
 
-        private String objectName;
+		private String objectName;
 
-        private String field;
+		private String field;
 
-        private String rejectedValue;
+		private String rejectedValue;
 
-        private boolean bindingFailure;
+		private boolean bindingFailure;
 
-        private String code;
-    }
+		private String code;
+	}
 }

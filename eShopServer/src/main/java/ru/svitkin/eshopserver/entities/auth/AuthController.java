@@ -21,23 +21,25 @@ import ru.svitkin.eshopserver.exceptions.dtos.DefaultExceptionPayload;
 @RequiredArgsConstructor
 @RequestMapping("/auth")
 @Tag(name = "Авторизация/Регистрация", description = "Позволяет авторизоваться/зарегистрироваться пользователю в системе")
-@ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = BadRequestExceptionPayload.class))})
+@ApiResponse(responseCode = "400", content = {
+		@Content(schema = @Schema(implementation = BadRequestExceptionPayload.class)) })
 public class AuthController {
-    private final AuthService authService;
+	private final AuthService authService;
 
-    @PostMapping("/login")
-    @Operation(summary = "Авторизация пользователя", description = "Позволяет пользователю авторизоваться в системе")
-    @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = AuthOutputDto.class))})
-    @ApiResponse(responseCode = "401", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))})
-    public AuthOutputDto createAuthToken(@Valid @RequestBody AuthInputDto authInputDto) {
-        return authService.signIn(authInputDto);
-    }
+	@PostMapping("/login")
+	@Operation(summary = "Авторизация пользователя", description = "Позволяет пользователю авторизоваться в системе")
+	@ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = AuthOutputDto.class)) })
+	@ApiResponse(responseCode = "401", content = {
+			@Content(schema = @Schema(implementation = DefaultExceptionPayload.class)) })
+	public AuthOutputDto createAuthToken(@Valid @RequestBody AuthInputDto authInputDto) {
+		return authService.signIn(authInputDto);
+	}
 
-    @PostMapping("/registration")
-    @ResponseStatus(HttpStatus.CREATED)
-    @Operation(summary = "Регистрация пользователя", description = "Позволяет пользователю зарегистрироваться в системе")
-    @ApiResponse(responseCode = "201", content = {@Content(schema = @Schema(implementation = AuthOutputDto.class))})
-    public UserOutputDto createNewUser(@Valid @RequestBody UserInputDto userInputDto) {
-        return authService.signUp(userInputDto);
-    }
+	@PostMapping("/registration")
+	@ResponseStatus(HttpStatus.CREATED)
+	@Operation(summary = "Регистрация пользователя", description = "Позволяет пользователю зарегистрироваться в системе")
+	@ApiResponse(responseCode = "201", content = { @Content(schema = @Schema(implementation = AuthOutputDto.class)) })
+	public UserOutputDto createNewUser(@Valid @RequestBody UserInputDto userInputDto) {
+		return authService.signUp(userInputDto);
+	}
 }
