@@ -1,10 +1,10 @@
-package ru.svitkin.eshopserver.entities.deviceInfo;
+package ru.svitkin.eshopserver.entities.deviceinfo;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.svitkin.eshopserver.entities.device.Device;
-import ru.svitkin.eshopserver.entities.deviceInfo.dtos.DeviceInfoInputDto;
+import ru.svitkin.eshopserver.entities.deviceinfo.dtos.DeviceInfoInputDto;
 
 import java.util.List;
 

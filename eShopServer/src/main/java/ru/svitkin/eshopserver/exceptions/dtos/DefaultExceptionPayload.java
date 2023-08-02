@@ -1,20 +1,22 @@
 package ru.svitkin.eshopserver.exceptions.dtos;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class DefaultExceptionPayload {
-    public String timestamp;
+    private String timestamp;
 
-    public int status;
+    private int status;
 
-    public String error;
+    private String error;
 
-    public String message;
+    private String message;
 
-    public String path;
+    private String path;
 }

@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -25,20 +24,16 @@ import java.util.List;
 @RequestMapping("/brands")
 @Tag(name = "Бренды", description = "Взаимодействие с брендами устройств")
 @SecurityRequirement(name = "JWT")
-@ApiResponses({
-        @ApiResponse(responseCode = "401", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))}),
-        @ApiResponse(responseCode = "403", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))})
-})
+@ApiResponse(responseCode = "401", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))})
+@ApiResponse(responseCode = "403", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))})
 public class BrandController {
     private final BrandService brandService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Создание бренда", description = "Позволяет создать бренд устройства")
-    @ApiResponses({
-            @ApiResponse(responseCode = "201", content = {@Content(schema = @Schema(implementation = BrandOutputDto.class))}),
-            @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = BadRequestExceptionPayload.class))})
-    })
+    @ApiResponse(responseCode = "201", content = {@Content(schema = @Schema(implementation = BrandOutputDto.class))})
+    @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = BadRequestExceptionPayload.class))})
     public BrandOutputDto create(@Valid @RequestBody BrandInputDto brandInputDto) {
         Brand brand = brandService.create(brandInputDto);
         return new ModelMapper().map(brand, BrandOutputDto.class);

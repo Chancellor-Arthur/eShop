@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.svitkin.eshopserver.config.db.BaseEntity;
 import ru.svitkin.eshopserver.entities.brand.Brand;
-import ru.svitkin.eshopserver.entities.deviceInfo.DeviceInfo;
+import ru.svitkin.eshopserver.entities.deviceinfo.DeviceInfo;
 import ru.svitkin.eshopserver.entities.rating.Rating;
 import ru.svitkin.eshopserver.entities.type.Type;
 

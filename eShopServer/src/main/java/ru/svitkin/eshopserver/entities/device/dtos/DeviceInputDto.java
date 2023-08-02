@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.svitkin.eshopserver.entities.deviceInfo.dtos.DeviceInfoInputDto;
+import ru.svitkin.eshopserver.entities.deviceinfo.dtos.DeviceInfoInputDto;
 
 import java.util.List;
 

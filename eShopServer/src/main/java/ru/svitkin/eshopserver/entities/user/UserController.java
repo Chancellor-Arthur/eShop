@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -25,10 +24,8 @@ import java.util.List;
 @RequestMapping("/users")
 @Tag(name = "Пользователи", description = "Операции для взаимодействия с пользователями системы")
 @SecurityRequirement(name = "JWT")
-@ApiResponses({
-        @ApiResponse(responseCode = "401", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))}),
-        @ApiResponse(responseCode = "403", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))})
-})
+@ApiResponse(responseCode = "401", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))})
+@ApiResponse(responseCode = "403", content = {@Content(schema = @Schema(implementation = DefaultExceptionPayload.class))})
 public class UserController {
     private final UserService userService;
 
@@ -46,10 +43,8 @@ public class UserController {
 
     @GetMapping("/{username}")
     @Operation(summary = "Получение пользователя по уникальному имени", description = "Позволяет получить запрашиваемого пользователя")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = UserOutputDto.class))}),
-            @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = BadRequestExceptionPayload.class))})
-    })
+    @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = UserOutputDto.class))})
+    @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = BadRequestExceptionPayload.class))})
     public UserOutputDto getOne(@PathVariable String username) {
         User user = userService.getByUsername(username);
 

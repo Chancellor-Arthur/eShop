@@ -1,4 +1,4 @@
-package ru.svitkin.eshopserver.entities.deviceInfo;
+package ru.svitkin.eshopserver.entities.deviceinfo;
 
 import jakarta.persistence.*;
 import lombok.Getter;

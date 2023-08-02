@@ -1,4 +1,4 @@
-package ru.svitkin.eshopserver.entities.deviceInfo.dtos;
+package ru.svitkin.eshopserver.entities.deviceinfo.dtos;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;

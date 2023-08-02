@@ -1,28 +1,28 @@
 package ru.svitkin.eshopserver.exceptions.dtos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class BadRequestExceptionPayload extends DefaultExceptionPayload {
-    public List<Error> errors;
+    private List<Error> errors;
 
     @Getter
     @Setter
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Error {
-        List<String> codes;
+        private List<String> codes;
 
-        ArrayList<Object> arguments;
+        private ArrayList<Object> arguments;
 
         private String defaultMessage;
 
