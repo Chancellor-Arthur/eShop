@@ -15,9 +15,7 @@ public class Validation {
             throw new IllegalArgumentException(
                     String.format("The supplied [%s] must support the validation of [%s] instances",
                             validator.getClass(),
-                            clazz
-                    )
-            );
+                            clazz));
 
         return validator;
     }

@@ -27,13 +27,12 @@ public class JwtTokenUtils {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-
         List<String> roles = userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList();
+
         claims.put("roles", roles);
 
         Date issuedDate = new Date();
         Date expiredDate = new Date(issuedDate.getTime() + lifetime.toMillis());
-
         byte[] keyBytes = Decoders.BASE64.decode(secret);
         Key key = Keys.hmacShaKeyFor(keyBytes);
 
@@ -46,8 +45,11 @@ public class JwtTokenUtils {
                 .compact();
     }
 
-    public String getUsername(String token) {
-        return getAllClaims(token).getSubject();
+    private Claims getAllClaims(String token) {
+        byte[] keyBytes = Decoders.BASE64.decode(secret);
+        Key key = Keys.hmacShaKeyFor(keyBytes);
+
+        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
     }
 
     @SuppressWarnings("unchecked")
@@ -55,14 +57,7 @@ public class JwtTokenUtils {
         return getAllClaims(token).get("roles", List.class);
     }
 
-    private Claims getAllClaims(String token) {
-        byte[] keyBytes = Decoders.BASE64.decode(secret);
-        Key key = Keys.hmacShaKeyFor(keyBytes);
-
-        return Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
+    public String getUsername(String token) {
+        return getAllClaims(token).getSubject();
     }
 }

@@ -1,10 +1,12 @@
 package ru.svitkin.eshopserver.entities.role;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.svitkin.eshopserver.config.BaseEntity;
+import ru.svitkin.eshopserver.config.db.BaseEntity;
 
 @Entity
 @Table(name = "roles")

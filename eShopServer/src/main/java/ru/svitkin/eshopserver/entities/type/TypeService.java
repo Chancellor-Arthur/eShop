@@ -1,10 +1,10 @@
 package ru.svitkin.eshopserver.entities.type;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.svitkin.eshopserver.entities.type.dtos.TypeInputDto;
-import ru.svitkin.eshopserver.exceptions.NotFoundException;
+import ru.svitkin.eshopserver.exceptions.specific.NotFoundException;
 
 import java.util.List;
 
@@ -14,6 +14,11 @@ import java.util.List;
 public class TypeService {
     private final TypeRepository typeRepository;
 
+    public Type create(TypeInputDto typeInputDto) {
+        Type type = new Type(typeInputDto.getName());
+        return typeRepository.save(type);
+    }
+
     public List<Type> getAll() {
         return typeRepository.findAll();
     }
@@ -21,10 +26,5 @@ public class TypeService {
     public Type getById(int id) {
         return typeRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(String.format("Тип устройства с id: %d не найден", id)));
-    }
-
-    public Type create(TypeInputDto typeInputDto) {
-        Type type = new Type(typeInputDto.getName());
-        return typeRepository.save(type);
     }
 }

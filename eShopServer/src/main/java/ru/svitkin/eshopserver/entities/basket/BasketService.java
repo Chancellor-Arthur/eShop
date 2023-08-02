@@ -2,11 +2,13 @@ package ru.svitkin.eshopserver.entities.basket;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.svitkin.eshopserver.entities.user.User;
 
 import java.util.ArrayList;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class BasketService {
     private final BasketRepository basketRepository;

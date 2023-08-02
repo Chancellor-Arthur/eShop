@@ -11,6 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 public class UserOutputDto {
     private String username;
+
     private String email;
+
     private List<String> roles;
 }

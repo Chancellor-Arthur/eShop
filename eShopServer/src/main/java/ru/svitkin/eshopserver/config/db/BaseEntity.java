@@ -1,4 +1,4 @@
-package ru.svitkin.eshopserver.config;
+package ru.svitkin.eshopserver.config.db;
 
 import jakarta.persistence.*;
 import lombok.Getter;

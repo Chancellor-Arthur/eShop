@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.svitkin.eshopserver.config.BaseEntity;
+import ru.svitkin.eshopserver.config.db.BaseEntity;
 import ru.svitkin.eshopserver.entities.basket.Basket;
 import ru.svitkin.eshopserver.entities.role.Role;
 
@@ -25,11 +25,16 @@ public class User extends BaseEntity {
     @Column(name = "email")
     private String email;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     private Basket basket;
 
     @ManyToMany
-    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable
+            (
+                    name = "users_roles",
+                    joinColumns = @JoinColumn(name = "user_id"),
+                    inverseJoinColumns = @JoinColumn(name = "role_id")
+            )
     private List<Role> roles;
 
     public User(String username, String password, String email, Role role) {

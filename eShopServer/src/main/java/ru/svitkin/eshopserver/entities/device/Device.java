@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.svitkin.eshopserver.config.BaseEntity;
+import ru.svitkin.eshopserver.config.db.BaseEntity;
 import ru.svitkin.eshopserver.entities.brand.Brand;
 import ru.svitkin.eshopserver.entities.deviceInfo.DeviceInfo;
 import ru.svitkin.eshopserver.entities.rating.Rating;
@@ -44,15 +44,15 @@ public class Device extends BaseEntity {
     @Transient
     private int rating;
 
-    public int getRating() {
-        return ratings.stream().mapToInt(Rating::getRate).sum();
-    }
-
     public Device(String name, int price, String image, Type type, Brand brand) {
         this.name = name;
         this.price = price;
         this.image = image;
         this.type = type;
         this.brand = brand;
+    }
+
+    public int getRating() {
+        return ratings.stream().mapToInt(Rating::getRate).sum();
     }
 }

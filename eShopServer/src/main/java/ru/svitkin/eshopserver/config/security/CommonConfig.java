@@ -1,4 +1,4 @@
-package ru.svitkin.eshopserver.config;
+package ru.svitkin.eshopserver.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

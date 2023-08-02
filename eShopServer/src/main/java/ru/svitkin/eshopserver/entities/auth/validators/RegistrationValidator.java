@@ -8,7 +8,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import ru.svitkin.eshopserver.entities.auth.dtos.UserInputDto;
 import ru.svitkin.eshopserver.entities.user.UserService;
-import ru.svitkin.eshopserver.exceptions.UnauthorizedException;
+import ru.svitkin.eshopserver.exceptions.specific.UnauthorizedException;
 
 @Component
 @RequiredArgsConstructor

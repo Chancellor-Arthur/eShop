@@ -1,10 +1,10 @@
-package ru.svitkin.eshopserver.exceptions;
+package ru.svitkin.eshopserver.exceptions.global;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.server.ResponseStatusException;
 
-public class CommonException extends ResponseStatusException {
-    public CommonException(HttpStatusCode status, String reason) {
+public class ApplicationException extends ResponseStatusException {
+    public ApplicationException(HttpStatusCode status, String reason) {
         super(status, reason);
     }
 

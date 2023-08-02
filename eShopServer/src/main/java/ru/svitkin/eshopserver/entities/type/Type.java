@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.svitkin.eshopserver.config.BaseEntity;
+import ru.svitkin.eshopserver.config.db.BaseEntity;
 import ru.svitkin.eshopserver.entities.brand.Brand;
 
 import java.util.List;

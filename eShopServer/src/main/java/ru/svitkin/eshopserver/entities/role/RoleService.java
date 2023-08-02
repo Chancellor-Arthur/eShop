@@ -2,9 +2,11 @@ package ru.svitkin.eshopserver.entities.role;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.svitkin.eshopserver.exceptions.NotFoundException;
+import org.springframework.transaction.annotation.Transactional;
+import ru.svitkin.eshopserver.exceptions.specific.NotFoundException;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class RoleService {
     private final RoleRepository roleRepository;

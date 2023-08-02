@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import ru.svitkin.eshopserver.entities.auth.dtos.AuthInputDto;
-import ru.svitkin.eshopserver.exceptions.UnauthorizedException;
+import ru.svitkin.eshopserver.exceptions.specific.UnauthorizedException;
 
 @Component
 @RequiredArgsConstructor
@@ -27,7 +27,8 @@ public class AuthValidator implements Validator {
         AuthInputDto authInputDto = (AuthInputDto) target;
 
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authInputDto.getUsername(), authInputDto.getPassword()));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authInputDto.getUsername(),
+                    authInputDto.getPassword()));
         } catch (BadCredentialsException exception) {
             throw new UnauthorizedException("Неправильный логин или пароль");
         }
