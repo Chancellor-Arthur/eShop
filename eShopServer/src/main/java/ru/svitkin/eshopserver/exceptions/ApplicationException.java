@@ -1,4 +1,4 @@
-package ru.svitkin.eshopserver.exceptions.global;
+package ru.svitkin.eshopserver.exceptions;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.server.ResponseStatusException;

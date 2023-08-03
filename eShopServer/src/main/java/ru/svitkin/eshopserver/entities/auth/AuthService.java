@@ -15,7 +15,6 @@ import ru.svitkin.eshopserver.entities.user.User;
 import ru.svitkin.eshopserver.entities.user.UserService;
 import ru.svitkin.eshopserver.entities.user.dtos.UserOutputDto;
 import ru.svitkin.eshopserver.utils.JwtTokenUtils;
-import ru.svitkin.eshopserver.utils.Validation;
 
 @Service
 @Transactional
@@ -27,7 +26,7 @@ public class AuthService {
 	private final JwtTokenUtils jwtTokenUtils;
 
 	public AuthOutputDto signIn(AuthInputDto authInputDto) {
-		new Validation(authValidator).check(AuthInputDto.class).validate(authInputDto, null);
+		authValidator.validate(authInputDto);
 
 		UserDetails userDetails = userService.loadUserByUsername(authInputDto.getUsername());
 		String token = jwtTokenUtils.generateToken(userDetails);
@@ -36,7 +35,7 @@ public class AuthService {
 	}
 
 	public UserOutputDto signUp(UserInputDto userInputDto) {
-		new Validation(registrationValidator).check(UserInputDto.class).validate(userInputDto, null);
+		registrationValidator.validate(userInputDto);
 
 		User user = userService.create(userInputDto);
 		return new UserOutputDto(user.getUsername(), user.getEmail(),

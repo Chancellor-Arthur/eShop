@@ -1,12 +1,9 @@
 package ru.svitkin.eshopserver.entities.auth.validators;
 
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.Errors;
-import org.springframework.validation.Validator;
 
 import lombok.RequiredArgsConstructor;
+import ru.svitkin.eshopserver.contracts.Validator;
 import ru.svitkin.eshopserver.entities.auth.dtos.UserInputDto;
 import ru.svitkin.eshopserver.entities.user.UserService;
 import ru.svitkin.eshopserver.exceptions.specific.UnauthorizedException;
@@ -17,12 +14,7 @@ public class RegistrationValidator implements Validator {
 	private final UserService userService;
 
 	@Override
-	public boolean supports(@NonNull Class<?> clazz) {
-		return UserInputDto.class.equals(clazz);
-	}
-
-	@Override
-	public void validate(@NonNull Object target, @Nullable Errors errors) {
+	public void validate(Object target) {
 		UserInputDto userInputDto = (UserInputDto) target;
 
 		if (!userInputDto.getPassword().equals(userInputDto.getConfirmPassword()))
