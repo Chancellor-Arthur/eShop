@@ -24,7 +24,7 @@ import ru.svitkin.eshopserver.entities.user.UserService;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@EnableMethodSecurity
+@EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
 	private final UserService userService;
 	private final AuthenticationConfiguration configuration;

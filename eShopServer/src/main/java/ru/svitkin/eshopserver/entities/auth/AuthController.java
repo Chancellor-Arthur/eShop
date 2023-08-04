@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import ru.svitkin.eshopserver.entities.auth.dtos.AuthInputDto;
 import ru.svitkin.eshopserver.entities.auth.dtos.AuthOutputDto;
 import ru.svitkin.eshopserver.entities.auth.dtos.UserInputDto;
@@ -18,6 +19,7 @@ import ru.svitkin.eshopserver.exceptions.dtos.BadRequestExceptionPayload;
 import ru.svitkin.eshopserver.exceptions.dtos.DefaultExceptionPayload;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/auth")
 @Tag(name = "Авторизация/Регистрация", description = "Позволяет авторизоваться/зарегистрироваться пользователю в системе")

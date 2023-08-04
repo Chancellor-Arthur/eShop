@@ -1,6 +1,6 @@
 package ru.svitkin.eshopserver.config.db;
 
-import java.time.Instant;
+import java.time.OffsetDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -21,10 +21,23 @@ public abstract class BaseEntity {
 	protected int id;
 
 	@CreatedDate
-	@Column(name = "created_at", nullable = false, updatable = false)
-	protected Instant createdAt;
+	@Column(name = "created_at", columnDefinition = "TIMESTAMP WITH TIME ZONE", nullable = false, updatable = false)
+	protected OffsetDateTime createdAt;
 
 	@LastModifiedDate
-	@Column(name = "updated_at")
-	protected Instant updatedAt;
+	@Column(name = "updated_at", columnDefinition = "TIMESTAMP WITH TIME ZONE")
+	protected OffsetDateTime updatedAt;
+
+	@PrePersist
+	protected void prePersist() {
+		if (createdAt == null)
+			createdAt = OffsetDateTime.now();
+		if (updatedAt == null)
+			updatedAt = OffsetDateTime.now();
+	}
+
+	@PreUpdate
+	protected void preUpdate() {
+		updatedAt = OffsetDateTime.now();
+	}
 }

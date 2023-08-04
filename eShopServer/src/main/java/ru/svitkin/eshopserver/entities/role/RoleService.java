@@ -13,7 +13,7 @@ public class RoleService {
 	private final RoleRepository roleRepository;
 
 	public Role getUserRole() {
-		return roleRepository.findByName(Roles.ADMIN)
-				.orElseThrow(() -> new NotFoundException(String.format("Роль '%s' не найдена", Roles.ADMIN)));
+		return roleRepository.findByName(Roles.USER)
+				.orElseThrow(() -> new NotFoundException(String.format("Роль '%s' не найдена", Roles.USER)));
 	}
 }

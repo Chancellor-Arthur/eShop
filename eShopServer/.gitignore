@@ -38,3 +38,9 @@ out/
 
 ### Secrets ###
 *.properties
+
+### Static files ###
+**/resources/static/**
+
+### Saving .gitkeep files ###
+!**/.gitkeep

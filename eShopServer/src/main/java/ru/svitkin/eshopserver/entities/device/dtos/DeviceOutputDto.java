@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.svitkin.eshopserver.entities.brand.dtos.BrandOutputDto;
 import ru.svitkin.eshopserver.entities.deviceinfo.dtos.DeviceInfoInputDto;
+import ru.svitkin.eshopserver.entities.file.dtos.FileOutputDto;
 import ru.svitkin.eshopserver.entities.type.dtos.TypeOutputDto;
 
 @Data
@@ -21,7 +22,7 @@ public class DeviceOutputDto {
 
 	private int rating;
 
-	private String image;
+	private FileOutputDto file;
 
 	private TypeOutputDto type;
 

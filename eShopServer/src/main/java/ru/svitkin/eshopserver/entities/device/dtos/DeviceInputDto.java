@@ -21,7 +21,7 @@ public class DeviceInputDto {
 	@Min(value = 0, message = "Цена должна быть неотрицательной")
 	private int price;
 
-	private String image;
+	private int fileId;
 
 	private int typeId;
 

@@ -21,8 +21,8 @@ create table users_roles
     user_id integer not null,
     role_id integer not null,
     primary key (user_id, role_id),
-    foreign key (user_id) references users (id),
-    foreign key (role_id) references roles (id),
+    foreign key (user_id) references users (id) on delete cascade on update cascade,
+    foreign key (role_id) references roles (id) on delete cascade on update cascade,
     created_at timestamp with time zone default now(),
     updated_at timestamp with time zone default now()
 );

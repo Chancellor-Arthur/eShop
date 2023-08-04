@@ -9,6 +9,7 @@ import lombok.Setter;
 import ru.svitkin.eshopserver.config.db.BaseEntity;
 import ru.svitkin.eshopserver.entities.brand.Brand;
 import ru.svitkin.eshopserver.entities.deviceinfo.DeviceInfo;
+import ru.svitkin.eshopserver.entities.file.File;
 import ru.svitkin.eshopserver.entities.rating.Rating;
 import ru.svitkin.eshopserver.entities.type.Type;
 
@@ -24,8 +25,9 @@ public class Device extends BaseEntity {
 	@Column(name = "price")
 	private int price;
 
-	@Column(name = "image")
-	private String image;
+	@OneToOne
+	@JoinColumn(name = "file_id")
+	private File file;
 
 	@ManyToOne
 	@JoinColumn(name = "type_id")
@@ -35,24 +37,26 @@ public class Device extends BaseEntity {
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
 
-	@OneToMany(mappedBy = "device")
+	@OneToMany(mappedBy = "device", fetch = FetchType.EAGER)
 	private List<Rating> ratings;
 
-	@OneToMany(mappedBy = "device")
+	@OneToMany(mappedBy = "device", fetch = FetchType.EAGER)
 	private List<DeviceInfo> deviceInfos;
 
 	@Transient
 	private int rating;
 
-	public Device(String name, int price, String image, Type type, Brand brand) {
+	public Device(String name, int price, File file, Type type, Brand brand) {
 		this.name = name;
 		this.price = price;
-		this.image = image;
+		this.file = file;
 		this.type = type;
 		this.brand = brand;
 	}
 
 	public int getRating() {
+		if (ratings == null)
+			return 0;
 		return ratings.stream().mapToInt(Rating::getRate).sum();
 	}
 }

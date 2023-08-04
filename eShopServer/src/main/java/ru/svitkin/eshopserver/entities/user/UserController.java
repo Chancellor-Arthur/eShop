@@ -15,12 +15,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import ru.svitkin.eshopserver.entities.role.Role;
 import ru.svitkin.eshopserver.entities.user.dtos.UserOutputDto;
 import ru.svitkin.eshopserver.exceptions.dtos.BadRequestExceptionPayload;
 import ru.svitkin.eshopserver.exceptions.dtos.DefaultExceptionPayload;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/users")
 @Tag(name = "Пользователи", description = "Операции для взаимодействия с пользователями системы")
