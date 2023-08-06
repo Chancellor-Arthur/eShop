@@ -1,7 +1,6 @@
 package ru.svitkin.eshopserver.entities.auth.dtos;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthInputDto {
 	@NotBlank(message = "Имя пользователя не может быть пустым")
-	@Size(min = 2, max = 30, message = "Имя пользователя должно быть от 2 до 30 символов длиной")
 	private String username;
 
 	@NotBlank(message = "Пароль не может быть пустым")
-	@Size(min = 6, max = 200, message = "Пароль должен быть от 6 до 200 символов длиной")
 	private String password;
 }

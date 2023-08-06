@@ -1,7 +1,11 @@
 package ru.svitkin.eshopserver.entities.device;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +30,7 @@ public class DeviceService {
 	private final TypeService typeService;
 	private final DeviceInfoService deviceInfoService;
 	private final FileService fileService;
+	private final DeviceSpecifications deviceSpecifications;
 
 	public Device create(DeviceInputDto deviceInputDto) {
 		Brand brand = brandService.getById(deviceInputDto.getBrandId());
@@ -41,8 +46,9 @@ public class DeviceService {
 		return savedDevice;
 	}
 
-	public List<Device> getAll() {
-		return deviceRepository.findAll();
+	public Page<Device> getAll(Optional<Integer> brandId, Optional<Integer> typeId, int page, int limit) {
+		Specification<Device> specification = deviceSpecifications.withBrandAndType(brandId, typeId);
+		return deviceRepository.findAll(specification, PageRequest.of(page, limit));
 	}
 
 	public Device getById(int id) {

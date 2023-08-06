@@ -15,14 +15,12 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ru.svitkin.eshopserver.entities.type.dtos.TypeInputDto;
 import ru.svitkin.eshopserver.entities.type.dtos.TypeOutputDto;
 import ru.svitkin.eshopserver.exceptions.dtos.BadRequestExceptionPayload;
 import ru.svitkin.eshopserver.exceptions.dtos.DefaultExceptionPayload;
 
 @RestController
-@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/types")
 @Tag(name = "Типы", description = "Взаимодействие с типами устройств")

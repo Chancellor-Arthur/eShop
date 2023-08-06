@@ -13,13 +13,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ru.svitkin.eshopserver.entities.file.dtos.FileOutputDto;
 import ru.svitkin.eshopserver.exceptions.dtos.BadRequestExceptionPayload;
 import ru.svitkin.eshopserver.exceptions.dtos.DefaultExceptionPayload;
 
 @RestController
-@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/files")
 @Tag(name = "Файлы", description = "Взаимодействие с файлами")

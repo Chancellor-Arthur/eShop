@@ -42,5 +42,8 @@ out/
 ### Static files ###
 **/resources/static/**
 
+### Logs ###
+**/*.log
+
 ### Saving .gitkeep files ###
 !**/.gitkeep

@@ -3,10 +3,10 @@ package ru.svitkin.eshopserver.entities.auth.validators;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
-import ru.svitkin.eshopserver.contracts.Validator;
 import ru.svitkin.eshopserver.entities.auth.dtos.UserInputDto;
 import ru.svitkin.eshopserver.entities.user.UserService;
 import ru.svitkin.eshopserver.exceptions.specific.UnauthorizedException;
+import ru.svitkin.eshopserver.lib.Validator;
 
 @Component
 @RequiredArgsConstructor

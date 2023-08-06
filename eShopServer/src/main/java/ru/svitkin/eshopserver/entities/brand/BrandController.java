@@ -15,14 +15,12 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ru.svitkin.eshopserver.entities.brand.dtos.BrandInputDto;
 import ru.svitkin.eshopserver.entities.brand.dtos.BrandOutputDto;
 import ru.svitkin.eshopserver.exceptions.dtos.BadRequestExceptionPayload;
 import ru.svitkin.eshopserver.exceptions.dtos.DefaultExceptionPayload;
 
 @RestController
-@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/brands")
 @Tag(name = "Бренды", description = "Взаимодействие с брендами устройств")
