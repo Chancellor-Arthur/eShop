@@ -33,3 +33,6 @@ storage.location=src/main/resources/static
 logging.level.org.springframework.web=DEBUG
 logging.level.org.hibernate.SQL=INFO
 logging.file.name=./logs/app.log
+
+### Actuator config ###
+management.endpoints.web.exposure.include=*

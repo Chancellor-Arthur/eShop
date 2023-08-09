@@ -1,5 +1,5 @@
 {
-  "name": "temp",
+  "name": "e-shop-client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,18 +7,33 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "taxios:generate": "taxios-generate http://localhost:8080/swagger/api-docs -o ./src/types/eShopApi.ts -e eShopApi --sort-fields --named-enums --skip-validation --skip-additional-properties && prettier --write ./src/types/eShopApi.ts"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@mantine/core": "^6.0.17",
+    "@mantine/form": "^6.0.17",
+    "@mantine/hooks": "^6.0.17",
+    "@simplesmiler/taxios": "^0.2.15",
+    "axios": "^0.27.2",
+    "compose-function": "^3.0.3",
+    "mobx": "^6.10.0",
+    "mobx-react-lite": "^4.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2"
   },
   "devDependencies": {
+    "@simplesmiler/taxios-generate": "^0.2.15",
+    "@types/compose-function": "^0.0.30",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vite-plugin-svgr": "^3.2.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
