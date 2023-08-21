@@ -1,9 +1,9 @@
-import { FC, Suspense } from "react";
-import { Navbar } from "@/entities/layout";
-import { Outlet } from "react-router-dom";
-import { AppShell } from "@mantine/core";
+import { FC, Suspense } from 'react';
+import Navbar from '@/components/layout/Navbar';
+import { Outlet } from 'react-router-dom';
+import { AppShell } from '@mantine/core';
 
-const Layout: FC = () => {
+const DefaultLayout: FC = () => {
   return (
     <AppShell
       padding="md"
@@ -21,4 +21,4 @@ const Layout: FC = () => {
   );
 };
 
-export default Layout;
+export default DefaultLayout;

@@ -1,11 +1,11 @@
-import { FC } from "react";
-import { Navbar as OriginNavbar, Group, ActionIcon, Divider, List } from "@mantine/core";
-import { MenuHide24Icon } from "@/shared/icons";
-import { Link } from "react-router-dom";
-import { navBarLinks, navBarSubLinks } from "@/entities/layout/model/navBar";
-import NavLink from "./NavLink";
-import UserInfo from "./UserInfo";
-import SubNavLink from "./SubNavLink";
+import { FC } from 'react';
+import { Navbar as OriginNavbar, Group, ActionIcon, Divider, List } from '@mantine/core';
+import { MenuHide24Icon } from '@/shared/icons';
+import { Link } from 'react-router-dom';
+import { navBarLinks, navBarSubLinks } from '@/const/navBar';
+import NavLink from '@/components/layout/NavLink';
+import UserInfo from '@/components/layout/UserInfo';
+import SubNavLink from '@/components/layout/SubNavLink';
 
 const Navbar: FC = () => {
   return (

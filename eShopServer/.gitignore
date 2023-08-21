@@ -43,7 +43,7 @@ out/
 **/resources/static/**
 
 ### Logs ###
-**/*.log
+**/*.log**
 
 ### Saving .gitkeep files ###
 !**/.gitkeep

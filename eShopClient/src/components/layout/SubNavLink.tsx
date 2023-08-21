@@ -1,6 +1,6 @@
-import { useMantineTheme } from "@mantine/core";
-import { FC } from "react";
-import NavLink, { NavLinkProps } from "./NavLink";
+import { useMantineTheme } from '@mantine/core';
+import { FC } from 'react';
+import NavLink, { NavLinkProps } from '@/components/layout/NavLink';
 
 interface SubNavLinkProps extends NavLinkProps {}
 

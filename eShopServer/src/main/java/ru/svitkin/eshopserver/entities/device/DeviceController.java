@@ -12,27 +12,24 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import ru.svitkin.eshopserver.entities.device.dtos.DeviceInputDto;
 import ru.svitkin.eshopserver.entities.device.dtos.DeviceOutputDto;
 import ru.svitkin.eshopserver.entities.device.dtos.DevicesPage;
-import ru.svitkin.eshopserver.exceptions.dtos.BadRequestExceptionPayload;
-import ru.svitkin.eshopserver.exceptions.dtos.DefaultExceptionPayload;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/devices")
 @Tag(name = "Устройства", description = "Взаимодействие с каталогом устройств")
-@SecurityRequirement(name = "JWT")
-@ApiResponse(responseCode = "400", content = {
-		@Content(schema = @Schema(implementation = BadRequestExceptionPayload.class)) })
-@ApiResponse(responseCode = "401", content = {
-		@Content(schema = @Schema(implementation = DefaultExceptionPayload.class)) })
-@ApiResponse(responseCode = "403", content = {
-		@Content(schema = @Schema(implementation = DefaultExceptionPayload.class)) })
+//@SecurityRequirement(name = "JWT")
+//@ApiResponse(responseCode = "400", content = {
+//		@Content(schema = @Schema(implementation = BadRequestExceptionPayload.class)) })
+//@ApiResponse(responseCode = "401", content = {
+//		@Content(schema = @Schema(implementation = DefaultExceptionPayload.class)) })
+//@ApiResponse(responseCode = "403", content = {
+//		@Content(schema = @Schema(implementation = DefaultExceptionPayload.class)) })
 public class DeviceController {
 	private final DeviceService deviceService;
 	private final DeviceConverter deviceConverter;

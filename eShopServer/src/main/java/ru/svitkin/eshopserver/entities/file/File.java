@@ -1,6 +1,9 @@
 package ru.svitkin.eshopserver.entities.file;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +22,7 @@ public class File extends BaseEntity {
 	@Column(name = "name")
 	private String name;
 
-	@OneToOne(mappedBy = "file", fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "file")
 	private Device device;
 
 	public File(String path, String name) {
